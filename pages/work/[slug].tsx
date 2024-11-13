@@ -29,7 +29,7 @@ export default function PostPage({ post }: PostPageProps) {
           <Image
             key={image._key}
             src={image.image.asset.url}
-            alt={image.alt}
+            alt={image.alt || 'Gallery Image'}
             width={500}
             height={300}
           />

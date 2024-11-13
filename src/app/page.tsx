@@ -1,7 +1,5 @@
-import Image from "next/image";
 import {client} from '@/sanity/lib/client'
 import {POSTS_QUERY} from '@/sanity/lib/queries'
-import {POST_QUERY} from '@/sanity/lib/queries'
 
 export default async function Home() {
   const posts = await client.fetch(POSTS_QUERY)

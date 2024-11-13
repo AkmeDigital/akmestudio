@@ -48,13 +48,34 @@ export const postType = defineType({
     }),
     defineField({
       name: 'imageGallery',
+      title: 'Image Gallery',
       type: 'array',
       of: [
-        { type: 'image' }
-      ],
-      options: {
-        layout: 'grid'
-      }
+        {
+          type: 'object',
+          name: 'images',
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+            },
+            {
+              name: 'position',
+              type: 'string',
+              title: 'Position (L, C, R)',
+            },
+            {
+              name: 'image',
+              type: 'image',
+              title: 'Image',
+              options: {
+                hotspot: true,
+              },
+            },
+          ]
+        }
+      ]
     }),
     defineField({
       name: 'body',

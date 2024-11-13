@@ -1,7 +1,5 @@
 // ./src/sanity/lib/queries.ts
 
-import {defineQuery} from 'next-sanity'
-
 export const POSTS_QUERY = `*[_type == "post"]{
   _id,
   title,

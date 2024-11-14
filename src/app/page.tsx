@@ -1,24 +1,15 @@
-import {client} from '@/sanity/lib/client'
-import {POSTS_QUERY} from '@/sanity/lib/queries'
+// src/app/page.tsx
+import { client } from '@/sanity/lib/client';
+import { HOMEPAGE_QUERY } from '@/sanity/lib/queries';
+import { HomepageData } from '@/types/homepage';
+import ImageSlider from './components/ImageSlider';
 
 export default async function Home() {
-  const posts = await client.fetch(POSTS_QUERY)
-
-  console.log(posts)
-
-
-  const post = await client.fetch(POSTS_QUERY[0])
-
-  console.log('--', post[0], '--')
-  console.log('title', post[0]?.title)
-  console.log('title', post[0]?.imageGallery)
-
-  // next step, figure out slugs and sub pages auto generating. 
+  const homepageData: HomepageData = await client.fetch(HOMEPAGE_QUERY);
 
   return (
-   <div>
-    <h1>hello</h1>
-
-   </div>
+    <div className="home w-full h-screen bg-black bg-center">
+      <ImageSlider images={homepageData.imageGallery} />
+    </div>
   );
 }

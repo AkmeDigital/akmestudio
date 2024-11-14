@@ -34,3 +34,13 @@ export const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{
     }
   }
 }`;
+
+export const HOMEPAGE_QUERY = `*[_type == "home"][0]{
+  title,
+  imageGallery[]{
+    asset->{
+      url
+    },
+    alt
+  }
+}`;

@@ -1,3 +1,4 @@
+/* eslint-disable */
 interface Window {
-  swiper?: number; 
+  swiper?: any; 
 }

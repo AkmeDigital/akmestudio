@@ -1,65 +1,60 @@
 // app/work/[slug]/page.tsx
-"use client"; // Make this a client component
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { POST_QUERY } from "@/sanity/lib/queries";
 import { Post } from "@/types";
-import { useHeaderContext } from "@/app/context/HeaderContext";
+import { notFound } from "next/navigation";
+import HeaderText from "@/app/components/HeaderText";
 
 interface PostPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export default function PostPage({ params }: PostPageProps) {
-  const { setHeaderText } = useHeaderContext(); // Access context to update header text
-  const [post, setPost] = useState<Post | null>(null); // State to store post data
-
-  // Fetch data on the client side
-  useEffect(() => {
-    async function fetchData() {
-      const fetchedPost: Post | null = await client.fetch(POST_QUERY, { slug: params.slug });
-      setPost(fetchedPost);
-      
-      if (fetchedPost) {
-        setHeaderText(fetchedPost.title); // Set header text to the post title
-      }
-    }
-    
-    fetchData();
-  }, [params.slug, setHeaderText]);
+export default async function PostPage(props: PostPageProps) {
+  const params = await props.params;
+  const post: Post | null = await client.fetch(POST_QUERY, params);
 
   if (!post) {
-    return <div>Loading...</div>; // Show a loading state while fetching
+    notFound(); // Handle 404 if post is not found
   }
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      {post.mainImage && post.mainImage.asset && (
-        <Image
-          src={post.mainImage.asset.url}
-          alt={post.mainImage.alt || post.title}
-          width={800}
-          height={500}
-        />
-      )}
-      <div>
+    <div className="p-4">
+      <HeaderText text={post.title} />
+
+      <h1 className="text-3xl font-bold mb-8">{post.title}</h1>
+
+      <div className="mb-8">
         {post.body?.map((block, index) => (
           <p key={index}>{block.children[0].text}</p>
         ))}
       </div>
+
       <div>
-        {post.imageGallery?.map((image) => (
-          <Image
-            key={image._key}
-            src={image.image.asset.url}
-            alt={image.alt || "Gallery Image"}
-            width={500}
-            height={300}
-          />
-        ))}
+        {post.imageGallery?.map((image) => {
+          const alignmentClass =
+            image.position === "L"
+              ? "text-left"
+              : image.position === "R"
+              ? "text-right"
+              : "text-center";
+
+          return (
+            <div
+              key={image._key}
+              className={`w-full ${alignmentClass} mb-8 work-image-cont`} // Align based on position
+            >
+              <Image
+                src={image.image.asset.url}
+                alt={image.alt || "Gallery Image"}
+                className="inline-block" // Inline block for alignment
+                height={1800}
+                width={1800}
+                quality={100}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );

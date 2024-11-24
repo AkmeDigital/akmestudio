@@ -11,23 +11,16 @@ interface ImageSliderProps {
 }
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
-  const handleClick = (swiper: any) => {
-    swiper.slideNext(); // Move to the next slide on click
-  };
-
-  // todo
-  console.log(handleClick)
-
   return (
     <div 
       className="absolute top-0 left-0 w-full h-full z-0" // Full-screen, positioned at the back
-      onClick={() => (window as any).swiper?.slideNext()}
+      onClick={() => window.swiper?.slideNext()}
     >
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
-        onSwiper={(swiper) => { (window as any).swiper = swiper; }}
+        onSwiper={(swiper) => { window.swiper = swiper; }}
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>

@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "./components/header";
+import Footer from "./components/footer";
+import { HeaderProvider } from "./context/HeaderContext";
+import ThemeProvider from "./providers/themeProvider";
+
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +32,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        {children}
+        <ThemeProvider />
+        <HeaderProvider>
+          <Header />
+          <div className="akme-container mt-16">
+            {children}
+          </div>
+          <Footer />
+        </HeaderProvider>
       </body>
     </html>
   );

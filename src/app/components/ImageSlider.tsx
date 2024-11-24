@@ -11,6 +11,10 @@ interface ImageSliderProps {
 }
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
+  // const handleClick = (swiper: any) => {
+  //   swiper.slideNext(); // Move to the next slide on click
+  // };
+
   return (
     <div 
       className="absolute top-0 left-0 w-full h-full z-0" // Full-screen, positioned at the back

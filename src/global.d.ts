@@ -1,3 +1,3 @@
 interface Window {
-  swiper?: any; 
+  swiper?: number; 
 }

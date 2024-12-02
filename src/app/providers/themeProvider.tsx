@@ -9,6 +9,7 @@ export default function ThemeProvider() {
   useEffect(() => {
     const root = document.documentElement;
 
+    // todo set style on akme logo
     // Default styles
     let textColor = "#000";
     let backgroundColor = "#fff";

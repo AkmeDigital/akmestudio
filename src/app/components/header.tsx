@@ -1,12 +1,11 @@
-// app/components/header.tsx
 "use client"; // Add this to make it a client component
 
 import Image from "next/image";
 import logo from "@/app/images/logo.png";
+import svgLogo from '../../../public/akme_svg.svg'
 import { useHeaderContext } from "../context/HeaderContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 
 export default function Header() {
   const { headerText } = useHeaderContext();
@@ -17,35 +16,35 @@ export default function Header() {
 
   return (
     <div className="header absolute w-full z-10 top-0">
-      <div className="flex items-center justify-between p-4">
-        <div className="w-1/2">
-        <Link href={'/'}>
-          <Image src={logo} alt="Akme Logo" width={100} height={100} />
-        </Link>
+      <div className="grid grid-cols-12 items-center p-4">
+        {/* Logo */}
+        <div className="col-span-1">
+          <Link href={"/"}>
+            <Image src={svgLogo} alt="Akme Logo" width={100} height={100} className="svg-color"/>
+          </Link>
         </div>
 
-        <div className="flex flex-1 justify-end w-1/2">
-          <div className="w-1/2 text-right">
-            <p>{headerText}</p>
-          </div>
-          <div
-            className={`w-1/4 text-right ${
-              isActive("/work") ? "underline" : ""
-            }`}
-          >
-            <Link href={'/work'}>
-              Work
-            </Link>
-          </div>
-          <div
-            className={`w-1/4 text-right ${
-              isActive("/about") ? "underline" : ""
-            }`}
-          >
-            <Link href={'/about'}>
-              About
-            </Link>
-          </div>
+        {/* Header Text */}
+        <div className="col-start-8 col-span-1 text-left">
+          <p>{headerText}</p>
+        </div>
+
+        {/* Work Link */}
+        <div
+          className={`col-start-11 col-span-1 text-right ${
+            isActive("/work") ? "underline" : ""
+          }`}
+        >
+          <Link href={"/work"}>Work</Link>
+        </div>
+
+        {/* About Link */}
+        <div
+          className={`col-start-12 col-span-1 text-right ${
+            isActive("/about") ? "underline" : ""
+          }`}
+        >
+          <Link href={"/about"}>About</Link>
         </div>
       </div>
     </div>

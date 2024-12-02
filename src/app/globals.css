@@ -25,15 +25,21 @@ body {
 
 .akme-container {
   margin: 0;
+  margin-top: 4rem;
   padding: 0;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
 }
 
 
 .work-image-cont img {
-  max-height: 60vh;
+  max-height: 100vh;
   width: auto;
 }
 
+.svg-color {
+  color: var(--text-color); /* Inherits color from text */
+  fill: currentColor; /* Uses current text color for fill */
+  stroke: currentColor; /* Uses current text color for stroke, if needed */
+}

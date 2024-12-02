@@ -2,8 +2,8 @@
 import { client } from '@/sanity/lib/client';
 import { HOMEPAGE_QUERY } from '@/sanity/lib/queries';
 import { HomepageData } from '@/types/homepage';
-import HeaderText from './components/headerText';
-import ImageSlider from './components/imageSlider';
+import HeaderText from '@/app/components/HeaderText'
+import ImageSlider from '@/app/components/imageSlider';
 
 
 export default async function Home() {

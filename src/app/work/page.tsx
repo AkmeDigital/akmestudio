@@ -3,7 +3,7 @@ import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
 import { Post } from "@/types"; 
-import HeaderText from "../components/headerText";
+import HeaderText from '@/app/components/HeaderText'
 import SecondaryFooter from "../components/secondaryFooter";
 
 export default async function WorkPage() {

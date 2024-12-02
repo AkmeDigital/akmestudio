@@ -1,7 +1,6 @@
 "use client"; // Add this to make it a client component
 
 import Image from "next/image";
-import logo from "@/app/images/logo.png";
 import svgLogo from '../../../public/akme_svg.svg'
 import { useHeaderContext } from "../context/HeaderContext";
 import Link from "next/link";

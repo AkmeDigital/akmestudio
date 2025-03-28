@@ -2,8 +2,9 @@
 import { client } from '@/sanity/lib/client';
 import { HOMEPAGE_QUERY } from '@/sanity/lib/queries';
 import { HomepageData } from '@/types/homepage';
-import ImageSlider from './components/ImageSlider';
-import HeaderText from './components/HeaderText';
+import HeaderText from '@/components/headerText';
+import ImageSlider from '@/components/imageSlider'
+
 
 export default async function Home() {
   const homepageData: HomepageData = await client.fetch(HOMEPAGE_QUERY);

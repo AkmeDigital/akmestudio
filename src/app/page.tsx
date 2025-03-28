@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <div className="home w-full h-screen bg-black bg-center">
-      <HeaderText text="My Homepage" /> {/* Set header text */}
+      <HeaderText text="My Homepage" />
       <ImageSlider images={homepageData.imageGallery} />
     </div>
   );

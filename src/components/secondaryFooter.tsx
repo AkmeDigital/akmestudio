@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../../public/akme_svg.svg";
+import logo from "../../public/akme_svg.svg";
 import CurrentTime from "./currentTime";
 
 export default function SecondaryFooter() {

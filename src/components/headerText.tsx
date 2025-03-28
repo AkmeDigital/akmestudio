@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useHeaderContext } from "../context/HeaderContext";
+import { useHeaderContext } from "../app/context/HeaderContext";
 
 interface HeaderTextProps {
   text: string;

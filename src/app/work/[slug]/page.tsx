@@ -4,8 +4,9 @@ import { client } from "@/sanity/lib/client";
 import { POST_QUERY } from "@/sanity/lib/queries";
 import { Post } from "@/types";
 import { notFound } from "next/navigation";
-import SecondaryFooter from "@/app/components/secondaryFooter";
-import HeaderText from '@/app/components/HeaderText'
+import HeaderText from '../../components/headerText';
+import SecondaryFooter from "../../components/secondaryFooter";
+
 interface PostPageProps {
   params: Promise<{ slug: string }>;
 }

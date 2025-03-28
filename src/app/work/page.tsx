@@ -3,8 +3,8 @@ import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
 import { Post } from "@/types"; 
-import HeaderText from '@/app/components/HeaderText'
 import SecondaryFooter from "../components/secondaryFooter";
+import HeaderText from "../components/headerText";
 
 export default async function WorkPage() {
   const posts: Post[] = await client.fetch(POSTS_QUERY);

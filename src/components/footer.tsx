@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className={`${footerClass} bottom-0 w-full z-10 p-4`}>
       <div className="grid grid-cols-12 items-center gap-4">
         {/* Project Inquiries */}
-        <div className="col-start-1 col-span-3">
+        <div className="col-span-6 lg:col-start-1 lg:col-span-3">
           <p>
             For Project inquiries and more information, get in touch at{" "}
             <a href="mailto:contact@akmestudio.com">contact@akmestudio.com</a>
@@ -20,15 +20,15 @@ export default function Footer() {
         </div>
 
         {/* @akme.studio */}
-        <div className="col-start-8 col-span-1">
+        <div className="col-span-2 col-start-8 lg:col-start-8 lg:col-span-1">
           <a target="_blank" href="https://www.instagram.com/akme.studio/">
             @akme.studio
           </a>
         </div>
 
         {/* Copyright Akmē Studio */}
-        <div className="col-start-11 col-span-2 text-right">
-          <span>Copyright Akmē Studio</span>
+        <div className="col-span-3 lg:col-start-11 lg:col-span-2 text-right">
+          <span>&copy; Akmē Studio</span>
         </div>
       </div>
     </footer>

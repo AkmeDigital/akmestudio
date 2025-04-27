@@ -44,3 +44,20 @@ export const HOMEPAGE_QUERY = `*[_type == "home"][0]{
     alt
   }
 }`;
+
+export const ABOUT_QUERY = `*[_type == "about"][0]{
+  title,
+  mainImage {
+    asset->{
+      url
+    },
+    alt
+  },
+  body,
+  sections[] {
+    title,
+    items[] {
+      name
+    }
+  }
+}`;

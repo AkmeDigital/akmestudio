@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { POST_QUERY } from "@/sanity/lib/queries";
@@ -7,26 +7,18 @@ import { notFound } from "next/navigation";
 import HeaderText from "@/components/headerText";
 import SecondaryFooter from "../../../components/secondaryFooter";
 
-// Cache the fetch call so it doesn't run twice
-// const getPost = cache(async (slug: string): Promise<Post | null> => {
-//   return await client.fetch(POST_QUERY, { slug });
-// });
-
 async function getPost(slug: string) {
   const res = await client.fetch(POST_QUERY, { slug }, {cache: 'force-cache'})
   const post: Post = await res
   if (!post) notFound()
-    // console.log('***', post)
     return post
 
 }
 
-export async function generateMetadata(
-  { params }: { params: { slug: string } }, // ✅ Corrected type and key name
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  const post = await getPost(params.slug); // ✅ No async destructuring issue
-
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
+  console.log('params', params)
+  const post = await getPost(params.slug);
   if (!post) {
     return {
       title: "Post Not Found",
@@ -40,12 +32,12 @@ export async function generateMetadata(
   };
 }
 
-// ✅ Fix PostPage function
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const post = await getPost(params.slug); // ✅ Pass only the slug
+export default async function PostPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
+  const post = await getPost(params.slug); 
 
   if (!post) {
-    notFound(); // Handle 404 if post is not found
+    notFound();
   }
 
   return (
@@ -53,9 +45,9 @@ export default async function PostPage({ params }: { params: { slug: string } })
       <div className="p-4">
         <HeaderText text={post.title} />
 
-        <h1 className="text-3xl font-bold mb-8">{post.title}</h1>
+        <h1 className=" text-3xl font-bold mb-8">{post.title}</h1>
 
-        <div className="mb-8">
+        <div className="w-[75%] mb-8">
           {post.body?.map((block, index) => (
             <p key={index}>{block.children[0].text}</p>
           ))}

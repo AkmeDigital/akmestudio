@@ -21,14 +21,14 @@ export default async function WorkPage() {
   return (
     <>
 
-    <div className="p-4">
-      <HeaderText text="My Workssss" /> {/* Set header text */}
+    <div className="p-4 lg:mt-32 lg:mb-32">
+      <HeaderText text="Multidisciplinary independent design studio based in Sydney, Australia." /> {/* Set header text */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {posts.map((post) => (
           <Link
             href={`/work/${post.slug.current}`}
             key={post._id}
-            className="group relative block overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            className="group relative block overflow-hidden hover:shadow-xl transition-shadow"
           >
             {post.mainImage && post.mainImage.asset && (
               <Image

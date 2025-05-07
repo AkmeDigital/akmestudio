@@ -9,9 +9,11 @@ import ImageSlider from '@/components/imageSlider'
 export default async function Home() {
   const homepageData: HomepageData = await client.fetch(HOMEPAGE_QUERY);
 
+  console.log(homepageData.imageGallery)
+
   return (
-    <div className="home w-full h-screen bg-black bg-center">
-      <HeaderText text="My Homepage" /> {/* Set header text */}
+    <div className="home w-full bg-black bg-center">
+      <HeaderText text="Multidisciplinary independent design studio based in Sydney, Australia." /> {/* Set header text */}
       <ImageSlider images={homepageData.imageGallery} />
     </div>
   );

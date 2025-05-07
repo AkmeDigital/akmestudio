@@ -23,10 +23,13 @@ export default async function AboutPage() {
       <HeaderText text="contact@akmestudio.com" />
       <h1 className="hidden text-3xl font-bold mb-8">{aboutpageData.title}</h1>
 
-        <div className="w-[75%] mb-8">
+      <div className="grid grid-cols-12 mb-8">
+        <div className="col-span-5">
           <p>{aboutpageData.body}</p>
         </div>
-        <div className='mb-8'>
+      </div>
+      <div className="grid grid-cols-12 mb-8">
+      <div className='col-span-12'>
           <Image
             src={aboutpageData.mainImage.asset.url}
             alt={aboutpageData.mainImage.alt || aboutpageData.title}
@@ -36,14 +39,15 @@ export default async function AboutPage() {
             width={1800}
             />
         </div>
-        <div className="grid grid-cols-12 gap-4">
-          <div className='col-span-4'>
-            Services
-          </div>
+      </div>
+      <div className="grid grid-cols-12">
+        <div className='col-span-7'>
+          Services
+        </div>
           {aboutpageData.sections.map((service, index) => (
             <div
-              key={index}
-              className={`col-span-4 ${(index === 2 || index === 4) ? 'col-start-5' : ''}`}
+            key={index}
+            className={`col-span-2 ${(index === 0 || index === 2 || index === 4) ? 'col-start-8' : 'col-start-11'}`}
             >
               <h4 className="mb-4">{service.title}</h4>
               <ul className="">
@@ -53,8 +57,9 @@ export default async function AboutPage() {
               </ul>
             </div>
           ))}
+          </div>
         </div>
-      </div>
+
       <SecondaryFooter />
     </>
   )

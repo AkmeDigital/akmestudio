@@ -23,7 +23,7 @@ export default async function WorkPage() {
 
     <div className="p-4 lg:mt-32 lg:mb-32">
       <HeaderText text="Multidisciplinary independent design studio based in Sydney, Australia." /> {/* Set header text */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {posts.map((post) => (
           <Link
             href={`/work/${post.slug.current}`}
@@ -34,7 +34,7 @@ export default async function WorkPage() {
               <Image
                 src={post.mainImage.asset.url}
                 alt={post.mainImage.alt || post.title}
-                className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform group-hover:scale-105 lg:h-[300px]"
                 width={500}
                 height={300}
               />

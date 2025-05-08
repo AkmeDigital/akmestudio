@@ -42,21 +42,34 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
 
   return (
     <>
-      <div className="p-4">
+      <div className="p-8">
         <HeaderText text={post.title} />
 
         <h1 className=" text-3xl hidden font-bold mb-8">{post.title}</h1>
 
-        <div className="grid grid-cols-12 my-8">
-          <div className="col-span-5">
+        <div className="grid grid-cols-12 my-32 ">
+          <div className="lg:col-span-4 col-span-12">
             {post.body?.map((block, index) => (
               <p key={index}>{block.children[0].text}</p>
             ))}
           </div>
         </div>
+        
+        {post?.imageGallery && 
+          <div className='col-span-12 mb-8 lg:mb-48'>
+              <Image
+                src={post.imageGallery[0].image.asset.url}
+                alt={post.imageGallery[0].alt || post.title}
+                className="w-full h-auto"
+                quality={100}
+                height={1800}
+                width={1800}
+                />
+          </div>
+        }
 
-        <div className="grid grid-cols-12 gap-4">
-          {post.imageGallery?.map((image, index) => {
+        <div className="grid grid-cols-12 ">
+          {post.imageGallery?.slice(1).map((image, index) => {
             const alignmentClass =
               image.position === "L"
                 ? "col-start-1 col-span-10"
@@ -65,11 +78,11 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
                 : "col-start-2 col-span-10";
 
             return (
-              <div key={image._key} className={`${index === 0 ? 'col-span-12' : alignmentClass} mb-8 work-image-cont`}>
+              <div key={image._key} className={`${index === 0 ? 'col-span-12' : alignmentClass} mb-8 lg:mb-48 work-image-cont`}>
                 <Image
                   src={image.image.asset.url}
                   alt={image.alt || "Gallery Image"}
-                  className="w-full h-auto"
+                  className="w-full h-auto "
                   quality={100}
                   height={1800}
                   width={1800}

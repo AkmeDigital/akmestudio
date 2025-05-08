@@ -9,7 +9,7 @@ export default function Footer() {
   const footerClass = pathname === "/" ? "absolute" : "";
 
   return (
-    <footer className={`${footerClass} bottom-0 w-full z-10 p-4`}>
+    <footer className={`${footerClass} bottom-0 w-full z-10 p-8`}>
       <div className="grid grid-cols-12 items-center ">
         {/* Project Inquiries */}
         <div className="col-span-6 ">
@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
 
         {/* @akme.studio */}
-        <div className="col-span-3 col-start-7 lg:col-span-1">
+        <div className="col-span-3 col-start-7 lg:col-span-1 lg:pl-4">
           <a target="_blank" href="https://www.instagram.com/akme.studio/">
             @akme.studio
           </a>

@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <div className="header absolute w-full z-10 top-0">
-      <div className="grid grid-cols-12 items-center p-4">
+      <div className="grid grid-cols-12 items-center p-8">
         {/* Logo */}
         <div className="col-span-3 lg:col-span-6">
             <div className="w-[100px] lg:w-[200px]">
@@ -41,13 +41,13 @@ export default function Header() {
         </div>
 
         {/* Header Text */}
-        <div className="col-span-3 lg:col-span-4">
+        <div className="col-span-3 lg:col-span-4 lg:pl-4">
           <p className="hidden lg:block">{headerText}</p>
         </div>
 
         {/* Work Link */}
         <div
-          className={`col-span-2 col-start-9 lg:col-start-11 lg:col-span-1 ${
+          className={`col-span-2 col-start-9 lg:col-start-11 lg:col-span-1 text-right ${
             isActive("/work") ? "underline" : ""
           }`}
         >

@@ -13,10 +13,8 @@ export default function Footer() {
       <div className="grid grid-cols-12 items-center ">
         {/* Project Inquiries */}
         <div className="col-span-6 ">
-          <p>
             For Project inquiries and more information, get in touch at{" "}
             <a href="mailto:contact@akmestudio.com">contact@akmestudio.com</a>
-          </p>
         </div>
 
         {/* @akme.studio */}

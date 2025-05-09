@@ -17,6 +17,11 @@ body {
   font-size: 0.9rem;
 }
 
+p {
+  color: #0a0a0a;
+
+}
+
 @media (max-width: 480px) {
   body {
     font-size: 10px;

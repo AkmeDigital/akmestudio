@@ -11,8 +11,10 @@ export default function Header() {
   const isActive = (path: string) =>
     pathname === path || pathname.startsWith(path);
 
+console.log('path', pathname)
+
   return (
-    <div className="header absolute w-full z-10 top-0">
+    <div className={`header sticky w-full z-10 top-0 ${pathname !== '/' ? 'mix-blend-difference ' : 'h-[0]'}`}>
       <div className="grid grid-cols-12 items-center p-8">
         {/* Logo */}
         <div className="col-span-3 lg:col-span-6">
@@ -42,7 +44,7 @@ export default function Header() {
 
         {/* Header Text */}
         <div className="col-span-3 lg:col-span-4 lg:pl-4">
-          <p className="hidden lg:block">{headerText}</p>
+          <div className="hidden lg:block">{headerText}</div>
         </div>
 
         {/* Work Link */}

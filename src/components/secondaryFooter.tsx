@@ -29,9 +29,7 @@ export default function SecondaryFooter() {
         </div>
 
         <div className="col-span-10 lg:col-start-7 lg:col-span-4 lg:pl-4">
-          <p>
             Multidisciplinary independent design studio based in Sydney, Australia.  
-          </p>
         </div>
 
         <div className="col-span-2 lg:col-start-12 lg:col-span-1 text-right">

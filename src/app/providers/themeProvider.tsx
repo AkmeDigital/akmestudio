@@ -17,8 +17,10 @@ export default function ThemeProvider() {
     // Update styles based on specific pathnames
     switch (pathname) {
       case "/about":
-        textColor = "#0a0a0a";
+        // textColor = "#0a0a0a";
         backgroundColor = "#fff";
+        textColor = "#fff";
+        // backgroundColor = "#0a0a0a";
         break;
       case "/work":
         textColor = "#fff";
@@ -27,6 +29,12 @@ export default function ThemeProvider() {
       case "/":
         textColor = "#fff";
         backgroundColor = "#0a0a0a";
+        break;
+      default:
+        if (pathname.startsWith("/work/")) {
+          backgroundColor = "#fff";
+          textColor = "#fff";
+        }
         break;
     }
 

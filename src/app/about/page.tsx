@@ -19,7 +19,7 @@ export default async function AboutPage() {
   console.log(aboutpageData)
   return (
     <>
-      <div className="p-4">
+      <div className="p-8">
       <HeaderText text="contact@akmestudio.com" />
       <h1 className="hidden text-3xl font-bold mb-8">{aboutpageData.title}</h1>
 
@@ -30,15 +30,15 @@ export default async function AboutPage() {
       </div>
       <div className="grid grid-cols-12 mb-8">
       <div className='col-span-12'>
-          <Image
-            src={aboutpageData.mainImage.asset.url}
-            alt={aboutpageData.mainImage.alt || aboutpageData.title}
-            className="w-full h-auto"
-            quality={100}
-            height={1800}
-            width={1800}
-            />
-        </div>
+        <Image
+          src={aboutpageData.mainImage.asset.url}
+          alt={aboutpageData.mainImage.alt || aboutpageData.title}
+          className="w-full h-auto"
+          quality={100}
+          height={1800}
+          width={1800}
+          />
+      </div>
       </div>
       <div className="grid grid-cols-12">
         <div className='col-span-7'>

@@ -11,22 +11,30 @@ export default function ThemeProvider() {
 
     // todo set style on akme logo
     // Default styles
-    let textColor = "#000";
+    let textColor = "#0a0a0a";
     let backgroundColor = "#fff";
 
     // Update styles based on specific pathnames
     switch (pathname) {
       case "/about":
-        textColor = "#000";
+        // textColor = "#0a0a0a";
         backgroundColor = "#fff";
+        textColor = "#fff";
+        // backgroundColor = "#0a0a0a";
         break;
       case "/work":
         textColor = "#fff";
-        backgroundColor = "#222";
+        backgroundColor = "#0a0a0a";
         break;
       case "/":
         textColor = "#fff";
-        backgroundColor = "#000";
+        backgroundColor = "#0a0a0a";
+        break;
+      default:
+        if (pathname.startsWith("/work/")) {
+          backgroundColor = "#fff";
+          textColor = "#fff";
+        }
         break;
     }
 

@@ -23,9 +23,15 @@ export interface Post {
     _key: string;
     alt?: string;
     position?: string;
-    image: {
+    image?: {
       asset: {
         url: string;
+      };
+    };
+    video?: {
+      asset: {
+        url: string;
+        mimeType: string;
       };
     };
   }[];

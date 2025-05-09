@@ -6,7 +6,7 @@ import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
 import { Post } from "@/types"; 
-import SecondaryFooter from "../../components/secondaryFooter";
+// import SecondaryFooter from "../../components/secondaryFooter";
 import HeaderText from "../../components/headerText";
 
 
@@ -21,7 +21,7 @@ export default async function WorkPage() {
   return (
     <>
 
-    <div className="p-4 lg:mt-32 lg:mb-32">
+    <div className="p-8 lg:mt-32 lg:mb-32">
       <HeaderText text="Multidisciplinary independent design studio based in Sydney, Australia." /> {/* Set header text */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {posts.map((post) => (
@@ -34,19 +34,19 @@ export default async function WorkPage() {
               <Image
                 src={post.mainImage.asset.url}
                 alt={post.mainImage.alt || post.title}
-                className="h-full w-full object-cover transition-transform group-hover:scale-105 lg:h-[300px]"
+                className=""
                 width={500}
                 height={300}
               />
             )}
-            <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold">
+            <div className="absolute inset-0 bg-[var(--background-color)] bg-opacity-100 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
               {post.title}
             </div>
           </Link>
         ))}
       </div>
     </div>
-     <SecondaryFooter />
+     {/* <SecondaryFooter /> */}
      </>
   );
   

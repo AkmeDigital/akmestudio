@@ -79,9 +79,10 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
                 ? "col-start-3 col-span-10 ml-auto"
                 : "col-start-2 col-span-10";
 
+                console.log('image', image)
             return (
               <div key={image._key} className={`${alignmentClass} mb-8 lg:mb-48 work-image-cont`}>
-                { image.image && 
+                { image?.image?.asset?.url && 
                   <Image
                     src={image.image.asset.url}
                     alt={image.alt || "Gallery Image"}

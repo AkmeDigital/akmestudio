@@ -71,7 +71,7 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
         }
 
         <div className="grid grid-cols-12 ">
-          {post.imageGallery?.slice(1).map((image, index) => {
+          {post.imageGallery?.slice(1).map((image) => {
             const alignmentClass =
               image.position === "L"
                 ? "col-start-1 col-span-10"
@@ -79,8 +79,9 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
                 ? "col-start-3 col-span-10 ml-auto"
                 : "col-start-2 col-span-10";
 
+                console.log('image', image, alignmentClass)
             return (
-              <div key={image._key} className={`${index === 0 ? 'col-span-12' : alignmentClass} mb-8 lg:mb-48 work-image-cont`}>
+              <div key={image._key} className={`${alignmentClass} mb-8 lg:mb-48 work-image-cont`}>
                 { image.image && 
                   <Image
                     src={image.image.asset.url}
@@ -93,9 +94,11 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
                 }
                 {image.video && (
                   <video
-                    className="w-full h-auto"
-                    controls
+                  loop
+                    autoPlay      
+                    muted                      
                     src={image.video.asset.url}
+                    className="w-full h-auto"
                   >
                     Your browser does not support the video tag.
                   </video>

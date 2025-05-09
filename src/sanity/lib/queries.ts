@@ -31,9 +31,17 @@ export const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{
       asset-> {
         url
       }
+    },
+    video {
+      asset-> {
+        url,
+        mimeType
+      }
     }
   }
 }`;
+
+
 
 export const HOMEPAGE_QUERY = `*[_type == "home"][0]{
   title,

@@ -57,14 +57,16 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
         
         {post?.imageGallery && 
           <div className='col-span-12 mb-8 lg:mb-48'>
+            {post.imageGallery[0].image?.asset.url &&
               <Image
-                src={post.imageGallery[0].image.asset.url}
+                src={post.imageGallery[0].image?.asset.url }
                 alt={post.imageGallery[0].alt || post.title}
                 className="w-full h-auto"
                 quality={100}
                 height={1800}
                 width={1800}
                 />
+            }
           </div>
         }
 
@@ -79,14 +81,25 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
 
             return (
               <div key={image._key} className={`${index === 0 ? 'col-span-12' : alignmentClass} mb-8 lg:mb-48 work-image-cont`}>
-                <Image
-                  src={image.image.asset.url}
-                  alt={image.alt || "Gallery Image"}
-                  className="w-full h-auto "
-                  quality={100}
-                  height={1800}
-                  width={1800}
-                />
+                { image.image && 
+                  <Image
+                    src={image.image.asset.url}
+                    alt={image.alt || "Gallery Image"}
+                    className="w-full h-auto "
+                    quality={100}
+                    height={1800}
+                    width={1800}
+                  />
+                }
+                {image.video && (
+                  <video
+                    className="w-full h-auto"
+                    controls
+                    src={image.video.asset.url}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                )}
               </div>
             );
           })}

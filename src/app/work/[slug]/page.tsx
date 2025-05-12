@@ -12,12 +12,10 @@ async function getPost(slug: string) {
   const post: Post = await res
   if (!post) notFound()
     return post
-
 }
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const params = await props.params;
-  console.log('params', params)
   const post = await getPost(params.slug);
   if (!post) {
     return {
@@ -27,8 +25,8 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   }
 
   return {
-    title: post.title,
-    description: "A detailed view of the post.",
+    title: post.metaTitle || post.title,
+    description: post.metaDescription || post.subTitle || "No description available",
   };
 }
 
@@ -42,13 +40,16 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
 
   return (
     <>
-      <div className="p-8">
+      <div className="p-8 post">
         <HeaderText text={post.title} />
 
         <h1 className=" text-3xl hidden font-bold mb-8">{post.title}</h1>
 
         <div className="grid grid-cols-12 my-32 ">
-          <div className="lg:col-span-4 col-span-12">
+          <div className="lg:col-span-5 col-span-12">
+            <h3 className="subTitle">{post.subTitle}</h3>
+          </div>
+          <div className="lg:col-span-5 lg:col-start-8 col-span-12">
             {post.body?.map((block, index) => (
               <p key={index}>{block.children[0].text}</p>
             ))}

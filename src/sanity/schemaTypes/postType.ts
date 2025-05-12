@@ -125,7 +125,10 @@ export const postType = defineType({
         }),
       ],
     }),
-    
+    defineField({
+      name: 'subTitle',
+      type: 'string',
+    }),
     defineField({
       name: 'body',
       type: 'blockContent',

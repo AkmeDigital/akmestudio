@@ -8,14 +8,14 @@ export default function Header() {
   const { headerText } = useHeaderContext();
   const pathname = usePathname(); // Get the current path
 
-  const isActive = (path: string) =>
-    pathname === path || pathname.startsWith(path);
+  // const isActive = (path: string) =>
+  //   pathname === path || pathname.startsWith(path);
 
 console.log('path', pathname)
 
   return (
     <header className={`header sticky w-full z-10 top-0 ${pathname !== '/' ? 'mix-blend-difference ' : 'h-[0]'}`}>
-      <div className="grid grid-cols-12 items-center p-8">
+      <div className="grid grid-cols-12 items-center p-8 py-4">
         {/* Logo */}
         <div className="col-span-3 lg:col-span-6">
             <div className="w-[100px] lg:w-[200px]">
@@ -43,27 +43,21 @@ console.log('path', pathname)
         </div>
 
         {/* Header Text */}
-        <div className="col-span-3 lg:col-span-4 lg:pl-4">
+        <div className="col-span-3 lg:col-start-8 lg:col-span-4">
           <div className="hidden lg:block">{headerText}</div>
         </div>
 
         {/* Work Link */}
-        <div
-          className={`col-span-2 col-start-9 lg:col-start-11 lg:col-span-1 text-right ${
-            isActive("/work") ? "underline" : ""
-          }`}
-        >
-          <Link href={"/work"}>Work</Link>
+        <div className="col-span-2 col-start-11 lg:col-start-12 lg:col-span-1 text-right justify-end flex">
+          <Link href="/work" className="link-hover group mr-4">
+            Work
+          </Link>
+          {' '}
+          <Link href="/about" className="link-hover group">
+            About
+          </Link>
         </div>
-
         {/* About Link */}
-        <div
-          className={`text-right col-span-2 lg:col-start-12 lg:col-span-1 ${
-            isActive("/about") ? "underline" : ""
-          }`}
-        >
-          <Link href={"/about"}>About</Link>
-        </div>
       </div>
     </header>
   );

@@ -28,7 +28,7 @@ export default function SecondaryFooter() {
               </svg>
         </div>
 
-        <div className="col-span-10 lg:col-start-7 lg:col-span-4 lg:pl-4">
+        <div className="col-span-10 lg:col-start-8 lg:col-span-4">
             Multidisciplinary independent design studio based in Sydney, Australia.  
         </div>
 

@@ -15,6 +15,7 @@ export interface Post {
       url: string;
     };
   };
+  subTitle?: string;
   body?: {
     _key: string;
     children: {

@@ -35,7 +35,8 @@ export default function ThemeProvider() {
       default:
         if (pathname.startsWith("/work/")) {
           backgroundColor = "#fff";
-          textColor = "#fff";
+          textColor = "#0a0a0a";
+          headerColor = "#fff";
         }
         break;
     }

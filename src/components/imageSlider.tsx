@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Image from 'next/image';
 import { GalleryImage } from '@/types/homepage';
+import { Autoplay } from 'swiper/modules';
 
 interface ImageSliderProps {
   images: GalleryImage[];
@@ -18,13 +19,22 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   return (
     <div 
       className="absolute top-0 left-0 w-full h-full z-0" // Full-screen, positioned at the back
-      onClick={() => window.swiper?.slideNext()}
+      // onClick={() => window.swiper?.slideNext()}
     >
       <Swiper
-        spaceBetween={0}
-        slidesPerView={1}
-        loop={true}
-        onSwiper={(swiper) => { window.swiper = swiper; }}
+       spaceBetween={30}
+       centeredSlides={true}
+       speed={1}
+       autoplay={{
+         delay: 2500,
+         disableOnInteraction: false,
+       }}
+       pagination={{
+         clickable: true,
+       }}
+       navigation={true}
+       modules={[Autoplay]}
+       className="mySwiper"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>

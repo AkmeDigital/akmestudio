@@ -3,6 +3,9 @@
 export interface Post {
   _id: string;
   title: string;
+  priority?: number;
+  metaTitle?: string;
+  metaDescription?: string;
   slug: {
     current: string;
   };

@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 export default async function WorkPage() {
   const posts: Post[] = await client.fetch(POSTS_QUERY);
 
+  console.log("posts", posts[0].priority);
+
   return (
     <>
 
@@ -25,6 +27,7 @@ export default async function WorkPage() {
       <HeaderText text="Multidisciplinary independent design studio based in Sydney, Australia." /> {/* Set header text */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {posts.map((post) => (
+          console.log("post", post),
           <Link
             href={`/work/${post.slug.current}`}
             key={post._id}

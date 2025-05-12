@@ -17,6 +17,10 @@ body {
   font-size: 0.9rem;
 }
 
+header {
+  color: var(--header-color) !important;
+}
+
 p {
   color: #0a0a0a;
 
@@ -44,6 +48,13 @@ p {
 }
 
 .svg-color {
+  color: var(--header-color); /* Inherits color from text */
+  fill: currentColor; /* Uses current text color for fill */
+  stroke: currentColor; /* Uses current text color for stroke, if needed */
+}
+
+
+.second-footer .svg-color {
   color: var(--text-color); /* Inherits color from text */
   fill: currentColor; /* Uses current text color for fill */
   stroke: currentColor; /* Uses current text color for stroke, if needed */

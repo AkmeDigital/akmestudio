@@ -12,6 +12,18 @@ export const postType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'priority',
+      type: 'number',
+    }),
+    defineField({
+      name: 'metaTitle',
+      type: 'string',
+    }),
+    defineField({
+      name: 'metaDescription',
+      type: 'string',
+    }),
+    defineField({
       name: 'slug',
       type: 'slug',
       options: {

@@ -13,13 +13,15 @@ export default function ThemeProvider() {
     // Default styles
     let textColor = "#0a0a0a";
     let backgroundColor = "#fff";
+    let headerColor = "#fff";
 
     // Update styles based on specific pathnames
     switch (pathname) {
       case "/about":
-        // textColor = "#0a0a0a";
+        textColor = "#0a0a0a";
         backgroundColor = "#fff";
-        textColor = "#fff";
+        headerColor = "#fff";
+        // textColor = "#fff";
         // backgroundColor = "#0a0a0a";
         break;
       case "/work":
@@ -41,6 +43,7 @@ export default function ThemeProvider() {
     // Apply the styles
     root.style.setProperty("--text-color", textColor);
     root.style.setProperty("--background-color", backgroundColor);
+    root.style.setProperty("--header-color", headerColor);
   }, [pathname]);
 
   return null; // No UI, just a side effect

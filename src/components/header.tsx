@@ -14,7 +14,7 @@ export default function Header() {
 console.log('path', pathname)
 
   return (
-    <div className={`header sticky w-full z-10 top-0 ${pathname !== '/' ? 'mix-blend-difference ' : 'h-[0]'}`}>
+    <header className={`header sticky w-full z-10 top-0 ${pathname !== '/' ? 'mix-blend-difference ' : 'h-[0]'}`}>
       <div className="grid grid-cols-12 items-center p-8">
         {/* Logo */}
         <div className="col-span-3 lg:col-span-6">
@@ -65,6 +65,6 @@ console.log('path', pathname)
           <Link href={"/about"}>About</Link>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

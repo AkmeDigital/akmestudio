@@ -18,7 +18,7 @@ export default async function AboutPage() {
 
   return (
     <>
-      <div className="lg:p-8 p-4">
+      <div className="lg:p-8 p-4 lg:mb-0 mb-12">
       <HeaderText text="contact@akmestudio.com" />
       <h1 className="hidden text-3xl font-bold mb-8">{aboutpageData.title}</h1>
 
@@ -39,7 +39,7 @@ export default async function AboutPage() {
           />
       </div>
       </div>
-      <div className="grid grid-cols-12 mb-8 lg:mb-48">
+      <div className="grid grid-cols-12 mb-0 lg:mb-48">
         <div className='lg:col-span-7 col-span-4'>
           Services
         </div>

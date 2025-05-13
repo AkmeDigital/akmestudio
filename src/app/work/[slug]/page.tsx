@@ -40,7 +40,7 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
 
   return (
     <>
-      <div className="p-4 lg:p-8 post">
+      <div className="p-4 lg:p-8 post lg:mb-0 mb-12">
         <HeaderText text={post.title} />
 
         <h1 className=" text-3xl hidden font-bold mb-8">{post.title}</h1>

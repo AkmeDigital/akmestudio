@@ -5,7 +5,7 @@ import CurrentTime from "./currentTime";
 export default function SecondaryFooter() {
   return (
     <div className="w-full mt-auto z-10 second-footer ">
-      <div className="grid grid-cols-12 lg:items-center p-8">
+      <div className="grid grid-cols-12 lg:items-center lg:p-8 p-4">
         <div className="col-span-9 pb-4 lg:col-start-1 lg:col-span-5 flex items-center">
           {/* <Image src={logo} alt="Footer logo" width={100} height={100} className="w-full svg-color"/> */}
           <svg
@@ -28,11 +28,11 @@ export default function SecondaryFooter() {
               </svg>
         </div>
 
-        <div className="col-span-10 lg:col-start-8 lg:col-span-4">
+        <div className="col-span-8 lg:col-start-8 lg:col-span-4">
             Multidisciplinary independent design studio based in Sydney, Australia.  
         </div>
 
-        <div className="col-span-2 lg:col-start-12 lg:col-span-1 text-right">
+        <div className="col-span-2 col-start-11 lg:col-start-12 lg:col-span-1 text-right">
           <CurrentTime />
         </div>
       </div>

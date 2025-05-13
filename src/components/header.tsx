@@ -11,11 +11,9 @@ export default function Header() {
   // const isActive = (path: string) =>
   //   pathname === path || pathname.startsWith(path);
 
-console.log('path', pathname)
-
   return (
     <header className={`header sticky w-full z-10 top-0 ${pathname !== '/' ? 'mix-blend-difference ' : 'h-[0]'}`}>
-      <div className="grid grid-cols-12 items-center p-8 py-4">
+      <div className="grid grid-cols-12 items-center lg:p-8 p-4 py-4">
         {/* Logo */}
         <div className="col-span-3 lg:col-span-6">
             <div className="w-[100px] lg:w-[200px]">

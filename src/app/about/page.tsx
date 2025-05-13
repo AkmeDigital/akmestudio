@@ -18,7 +18,7 @@ export default async function AboutPage() {
 
   return (
     <>
-      <div className="p-8">
+      <div className="lg:p-8 p-4">
       <HeaderText text="contact@akmestudio.com" />
       <h1 className="hidden text-3xl font-bold mb-8">{aboutpageData.title}</h1>
 

@@ -18,8 +18,6 @@ export const metadata: Metadata = {
 export default async function WorkPage() {
   const posts: Post[] = await client.fetch(POSTS_QUERY);
 
-  console.log("posts", posts[0].priority);
-
   return (
     <>
       <div className="p-8 lg:mt-16">

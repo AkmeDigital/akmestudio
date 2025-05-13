@@ -10,6 +10,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Apris';
+  src: url('/fonts/Apris-Light.woff2') format('woff2');
+  font-weight: light;
+  font-style: normal;
+  font-display: swap;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -34,9 +42,13 @@ p {
 
 }
 
+h3.subtitle {
+  font-family: Apris;
+}
+
 @media (max-width: 480px) {
   body {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 

@@ -12,6 +12,18 @@ export const postType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'priority',
+      type: 'number',
+    }),
+    defineField({
+      name: 'metaTitle',
+      type: 'string',
+    }),
+    defineField({
+      name: 'metaDescription',
+      type: 'string',
+    }),
+    defineField({
       name: 'slug',
       type: 'slug',
       options: {
@@ -51,9 +63,10 @@ export const postType = defineType({
       title: 'Image Gallery',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'object',
-          name: 'images',
+          name: 'galleryImage', // use this exact name
+          title: 'Image',
           fields: [
             {
               name: 'alt',
@@ -73,9 +86,48 @@ export const postType = defineType({
                 hotspot: true,
               },
             },
-          ]
-        }
-      ]
+          ],
+          preview: {
+            select: {
+              media: 'image',
+            },
+          },
+        }),
+        defineArrayMember({
+          type: 'object',
+          name: 'galleryVideo',
+          title: 'Video',
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+            },
+            {
+              name: 'position',
+              type: 'string',
+              title: 'Position (L, C, R)',
+            },
+            {
+              name: 'video',
+              type: 'file',
+              title: 'MP4 File',
+              options: {
+                accept: 'video/mp4',
+              },
+            },
+          ],
+          preview: {
+            select: {
+              media: 'video',
+            },
+          },
+        }),
+      ],
+    }),
+    defineField({
+      name: 'subTitle',
+      type: 'string',
     }),
     defineField({
       name: 'body',

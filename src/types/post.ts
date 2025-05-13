@@ -3,6 +3,9 @@
 export interface Post {
   _id: string;
   title: string;
+  priority?: number;
+  metaTitle?: string;
+  metaDescription?: string;
   slug: {
     current: string;
   };
@@ -12,6 +15,7 @@ export interface Post {
       url: string;
     };
   };
+  subTitle?: string;
   body?: {
     _key: string;
     children: {
@@ -23,9 +27,15 @@ export interface Post {
     _key: string;
     alt?: string;
     position?: string;
-    image: {
+    image?: {
       asset: {
         url: string;
+      };
+    };
+    video?: {
+      asset: {
+        url: string;
+        mimeType: string;
       };
     };
   }[];

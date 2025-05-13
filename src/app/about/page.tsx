@@ -40,13 +40,13 @@ export default async function AboutPage() {
       </div>
       </div>
       <div className="grid grid-cols-12 mb-8 lg:mb-48">
-        <div className='col-span-7'>
+        <div className='lg:col-span-7 col-span-4'>
           Services
         </div>
           {aboutpageData.sections.map((service, index) => (
             <div
             key={index}
-            className={`col-span-2 ${(index === 0 || index === 2 || index === 4) ? 'col-start-8' : 'col-start-11'}`}
+            className={`lg:col-span-2 col-span-4 mb-8 ${(index === 0 || index === 2 || index === 4) ? 'lg:col-start-8' : 'lg:col-start-11'} ${(index === 2 || index === 4) ? 'col-start-5' : ''}`}
             >
               <h4 className="mb-4">{service.title}</h4>
               <ul className="">

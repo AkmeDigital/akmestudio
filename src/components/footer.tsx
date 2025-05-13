@@ -6,10 +6,11 @@ export default function Footer() {
   const pathname = usePathname();
 
   // Conditionally apply the 'absolute' class only on the root path
-  const footerClass = (pathname === "/" || pathname === "/work") ? "absolute" : "";
+  const footerClass = (pathname === "/") ? "absolute" : "";
+  const workClass = (pathname === "/work") ? "lg:absolute" : "";
 
   return (
-    <footer className={`${footerClass} bottom-0 w-full z-10 lg:p-8 p-4 py-4`}>
+    <footer className={`${footerClass} ${workClass} bottom-0 w-full z-10 lg:p-8 p-4 py-4`}>
       <div className="grid grid-cols-12 items-center ">
         {/* Project Inquiries */}
         <div className="lg:col-span-6 col-span-8 mb-4 lg:mb-0">

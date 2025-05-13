@@ -34,7 +34,7 @@ export default async function WorkPage() {
                   <Image
                     src={post.mainImage.asset.url}
                     alt={post.mainImage.alt || post.title}
-                    className="mb-32"
+                    className="lg:mb-32 mb-8"
                     width={500}
                     height={300}
                   />

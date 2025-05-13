@@ -26,7 +26,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
        centeredSlides={true}
        speed={1}
        autoplay={{
-         delay: 2500,
+         delay: 1000,
          disableOnInteraction: false,
        }}
        pagination={{

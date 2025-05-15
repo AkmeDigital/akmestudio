@@ -29,5 +29,24 @@ export const home = defineType({
         },
       ],
     },
+    {
+      name: 'mobileImageGallery',
+      title: 'Mobile Image Gallery',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            {
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+              options: { isHighlighted: true },
+            },
+          ],
+        },
+      ],
+    },
   ],
 });

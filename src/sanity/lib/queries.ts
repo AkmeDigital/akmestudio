@@ -54,6 +54,12 @@ export const HOMEPAGE_QUERY = `*[_type == "home"][0]{
       url
     },
     alt
+  },
+  mobileImageGallery[]{
+    asset->{
+      url
+    },
+    alt
   }
 }`;
 

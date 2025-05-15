@@ -15,9 +15,14 @@ interface ImageSliderProps {
 const ImageSlider: React.FC<ImageSliderProps> = ({ images, mobileImages }) => {
   const isMobile = useIsMobile();
   const selectedImages = isMobile ? mobileImages : images;
+  // const handleClick = (swiper: any) => {
+  //   swiper.slideNext(); // Move to the next slide on click
+  // };
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full z-0">
+    <div className="absolute top-0 left-0 w-full h-full z-0"
+    // onClick={() => window.swiper?.slideNext()}
+    >
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

@@ -17,7 +17,7 @@ export default async function Home() {
   return (
     <div className="home w-full bg-black bg-center">
       <HeaderText text="Multidisciplinary independent design studio based in Sydney, Australia." /> {/* Set header text */}
-      <ImageSlider images={homepageData.imageGallery} />
+      <ImageSlider images={homepageData.imageGallery} mobileImages={homepageData.mobileImageGallery} />
     </div>
   );
 }

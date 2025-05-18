@@ -100,7 +100,7 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
                     muted                      
                     src={image.video.asset.url}
                     className="w-full h-auto"
-                    controls
+                    controls={false}
                     disablePictureInPicture
                     controlsList="nodownload nofullscreen"
                     >

@@ -96,8 +96,9 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
                 {image.video && (
                     <video
                     loop
-                    autoPlay      
-                    muted                      
+                    autoPlay
+                    muted
+                    playsInline
                     src={image.video.asset.url}
                     className="w-full h-auto"
                     controls={false}

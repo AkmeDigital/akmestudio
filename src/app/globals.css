@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Graphik';
-  src: url('/fonts/Graphik-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'Apris';
   src: url('/fonts/Apris-Light.woff2') format('woff2');
   font-weight: light;
+  font-style: normal;
+  font-display: swap;
+
+}
+@font-face {
+  font-family: 'Ronzino';
+  src: url('/fonts/Ronzino-Regular.otf') format('opentype');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -29,7 +29,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-  font-family: Graphik, Arial, Helvetica, sans-serif;
+  font-family: Ronzino, Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
   overflow: var(--overflow);
 }
